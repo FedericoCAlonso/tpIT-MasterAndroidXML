@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">AllWallet</string>
+    <string name="appName">AllWallet</string>
+    <string name="userName">User</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="err_login">Incorrect username or password</string>
+    <string name="tabDashboardName">Dashboard</string>
+    <string name="tabWalletName">Wallets</string>
+    <string name="tabInfoName">Info</string>
+    <string name="ToolbarTitle">AllWallet</string>
+    <string name="menuItemSettings">Settigs</string>
+    <string name="menuItemLogout">Logout</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="DashboardTabTitle">Dashboard</string>
+    <string name="WalletsTabTitle">Wallets</string>
+    <string name="InfoTabTitle">Info</string>
+    <string name="btnWalletEdit">Edit</string>
+    <string name="title_activity_add_wallet">AddWalletActivity</string>
+    <string name="lblAddWalletTitle">Add a wallet</string>
+    <string name="HintInputWalletName">Wallet Name</string>
+    <string name="HintInputWalletProvider">Wallet Provider</string>
+    <string name="AddWalletRadioButtonInputUSD">USD</string>
+    <string name="AddWalletRadioButtonEUR">EUR</string>
+    <string name="AddWalletRadioButtonBTC">BTC</string>
+    <string name="AddWalletRadioButtonARS">ARS</string>
+    <string name="AddWalletInputTextBalance">Account Balance</string>
+    <string name="AddWalletButtonApply">Accept</string>
+    <string name="AddWalletButtonCancel">Cancel</string>
+    <string name="AddWalletErrorEmptyProvider">You must fill providers field</string>
+    <string name="AddWalletErrorEmptyName">You must fill Name\'s Walet field</string>
+    <string name="AddWalletErrorEmptyCurrency">"You must set the Cyrrency "</string>
+    <string name="AddWalletSuccess">Wallet added!</string>
+    <string name="edit_wallet_title">Edit Wallet</string>
+    <string name="EditWalletActivity">EditWalletActivity</string>
+    <string name="delete_wallet">Delete</string>
+    <string name="DashboardConsolidatedBalanceByCurrency">Consolidated Balance by Currency</string>
+    <string name="DashboardUSDTotalCurrencySymbol">USD</string>
+    <string name="DashboardEURTotalCurrencySymbol">EUR</string>
+    <string name="DashboardBTCTotalCurrencySymbol">BTC</string>
+    <string name="DashboardARSTotalCurrencySymbol">ARS</string>
+    <string name="DashboardTotalBalanceTitle">Consolidated Balance</string>
+    <string name="balance_format">%s %.2f</string>
+    <string name="EditWalletCanceled">Operation Canceled</string>
+    <string name="EditWalletSuccess">Wallet edited</string>
+    <string name="DeleteWalletSuccess">Wallet Deleted</string>
+
+</resources>
