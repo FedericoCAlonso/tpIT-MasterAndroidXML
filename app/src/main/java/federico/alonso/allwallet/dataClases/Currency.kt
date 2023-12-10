@@ -27,10 +27,14 @@ class Currency(
         }*/
 
         // 0 es un valor de error
-    fun currencyConvertRate(unitFrom: Currency, unitTo: Currency): Double{
-        if ( (unitTo.usdRefValue?: -1.0) < 0.0 )
-            return 0.0
-        return (unitFrom.usdRefValue ?: 0.0) / (unitTo.usdRefValue ?: 1.0)
+    fun currencyConvertRate(unitTo: Currency): Double{
+        return  if (
+                unitTo.isUsdRefernceValueSetted() &&
+                isUsdRefernceValueSetted()
+            )
+            unitTo.usdRefValue/usdRefValue
+                else
+                    0.0
     }
 
     fun toJson(): String = Gson().toJson(this)
@@ -39,7 +43,7 @@ class Currency(
 
     fun isEmpty(): Boolean = code == ""
 
-    fun isUsdRefernceValueSetted() : Boolean = usdRefValue != null
+    fun isUsdRefernceValueSetted() : Boolean = usdRefValue > 0.0
 
     override operator fun equals(other: Any?): Boolean {
         if( other !is Currency )

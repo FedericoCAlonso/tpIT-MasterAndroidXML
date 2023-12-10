@@ -138,7 +138,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <TextView
-        android:id="@+id/lblTotalCosolidatedBalance"
+        android:id="@+id/lblTotalConsolidatedBalance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"

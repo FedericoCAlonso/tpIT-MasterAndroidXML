@@ -7,8 +7,10 @@ import federico.alonso.allwallet.AppConstants
 import federico.alonso.allwallet.credentialManager.CredentialManager
 import federico.alonso.allwallet.dataClases.Bluelitics
 import federico.alonso.allwallet.dataClases.Cex
-import federico.alonso.allwallet.dataClases.Wallet
+import federico.alonso.allwallet.dataClases.Currency
 import federico.alonso.allwallet.dataClases.Wallets
+import java.text.NumberFormat
+import java.util.Locale
 
 class ApiWallet(
     private val user: CredentialManager,
@@ -47,10 +49,11 @@ class ApiWallet(
     private fun cexOnSuccess(json: String) {
         cex = Cex(json)
         val btc = cex.getPairLastValue(AppConstants.API_CEX_BTC_USD_PAIR)?: 0.0
-        for(wallet in wallets) {
+        wallets.btc.usdRefValue = btc
+        /*for(wallet in wallets) {
             if (wallet.currencyUnit == Wallet.BTC)
                 wallet.currencyUnit!!.usdRefValue = btc
-        }
+        }*/
         save()
 
     }
@@ -62,18 +65,16 @@ class ApiWallet(
 
     private fun blueliticsOnSuccess(json: String) {
         bluelitics = Bluelitics(json)
-        val euro = bluelitics.oficial_euro.value_avg
-        val peso = bluelitics.oficial.value_avg
+        // Devuelve la cotizacion del dolar, hay que transformarla
+        var peso = bluelitics.oficial.value_avg
+        peso = if( peso != 0.0 ) 1.0/peso else 0.0
+        // pasamos a cotización en dolares del euro
+        val euro = bluelitics.oficial_euro.value_avg * peso
 
-        for(wallet in wallets){
+        wallets.dollar.usdRefValue = 1.0
+        wallets.euro.usdRefValue = euro
+        wallets.peso.usdRefValue = peso
 
-            wallet.currencyUnit!!.usdRefValue =  when(wallet.currencyUnit){
-                Wallet.DOLLAR -> 1.0
-                Wallet.EURO -> euro
-                Wallet.PESO -> peso
-                else -> wallet.currencyUnit!!.usdRefValue
-            }
-        }
         save()
 
     }
@@ -98,6 +99,15 @@ class ApiWallet(
         ).performApiCall()
 
 
+    }
+// Esta función formatea el Double en notación local
+    fun formatBalanceByPosition(position: Int) : String {
+        return utilFormatBalance(wallets[position]?.balance ?:0.0, wallets[position]?.currencyUnit)
+    }
+
+    fun utilFormatBalance( balance : Double, currency: Currency?) : String{
+        val numberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
+        return (currency?.code?: "" )+ " " + numberFormat.format(balance)
     }
 
 

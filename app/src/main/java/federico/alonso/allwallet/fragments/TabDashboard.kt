@@ -1,5 +1,6 @@
 package federico.alonso.allwallet.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -42,23 +43,30 @@ class TabDashboard : Fragment() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateUI(view: View) {
         val usdTotalTextView: TextView = view.findViewById(R.id.lblDashboardUSDTotal)
         val eurTotalTextView: TextView = view.findViewById(R.id.lblDashboardEURTotal)
         val btcTotalTextView: TextView = view.findViewById(R.id.lblDashboardBTCTotal)
         val arsTotalTextView: TextView = view.findViewById(R.id.lblDashboardARSTotal)
         val totalConsolidatedBalanceTextView: TextView =
-            view.findViewById(R.id.lblTotalCosolidatedBalance)
+            view.findViewById(R.id.lblTotalConsolidatedBalance)
 
 
-        usdTotalTextView.text = apiWallet.wallets.totalBalanceBy(Wallet.DOLLAR).toString()
-        eurTotalTextView.text = apiWallet.wallets.totalBalanceBy(Wallet.EURO).toString()
-        btcTotalTextView.text = apiWallet.wallets.totalBalanceBy(Wallet.BTC).toString()
-        arsTotalTextView.text = apiWallet.wallets.totalBalanceBy(Wallet.PESO).toString()
+        usdTotalTextView.text = apiWallet.wallets.totalBalanceBy(apiWallet.wallets.dollar).toString()
+        eurTotalTextView.text = apiWallet.wallets.totalBalanceBy(apiWallet.wallets.euro).toString()
+        btcTotalTextView.text = apiWallet.wallets.totalBalanceBy(apiWallet.wallets.btc).toString()
+        arsTotalTextView.text = apiWallet.wallets.totalBalanceBy(apiWallet.wallets.peso).toString()
+        totalConsolidatedBalanceTextView.text = apiWallet.utilFormatBalance(
+            apiWallet.wallets.totalConsolidatedBalanceIn(apiWallet.wallets.peso),
+            apiWallet.wallets.peso
+        )
+
 
 
 
     }
+
 }
 
 

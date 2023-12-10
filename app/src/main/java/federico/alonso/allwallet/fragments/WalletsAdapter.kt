@@ -10,8 +10,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import federico.alonso.allwallet.R
 import federico.alonso.allwallet.apis.ApiWallet
-import java.text.NumberFormat
-import java.util.Locale
 
 
 class WalletsAdapter(
@@ -60,18 +58,10 @@ class WalletsAdapter(
         val balance = holder.itemView.findViewById<TextView>(R.id.lblWalletsItemBalance)
         name.text = apiWallets.wallets[position]?.name ?: ""
         provider.text = apiWallets.wallets[position]?.provider ?: ""
-        balance.text = formatBalance(position)
+        balance.text = apiWallets.formatBalanceByPosition(position)
 
     }
 
-    private fun formatBalance(position: Int) : String {
-        val numberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
 
-        return apiWallets.wallets[position]?.currencyUnit?.code +
-                " " +
-                numberFormat.format(
-                    apiWallets.wallets[position]?.balance ?: 0.0
-                )
-    }
 
 }

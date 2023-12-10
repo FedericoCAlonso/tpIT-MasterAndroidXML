@@ -66,15 +66,22 @@ class Wallet (
 
 class Wallets(){
     private var wallets = mutableListOf<Wallet>()
+    val dollar = Wallet.DOLLAR
+    val euro = Wallet.EURO
+    val btc = Wallet.BTC
+    val peso = Wallet.PESO
 
     constructor(json: String): this(){
         wallets = Gson().fromJson(json, Wallets::class.java)?.wallets?: wallets
+        for (wallet in wallets )
+            boundToWalletsGlobalCurrencys(wallet)
         Log.d("Wallets","wallets json ${toJson()}")
     }
 
     // agreaga a la lista solo si no hay otra igual
     fun addWallet( newWallet : Wallet) : Boolean {
         if ( wallets.find { it == newWallet } == null  ){
+            boundToWalletsGlobalCurrencys(newWallet)
             wallets.add(newWallet)
             return true
         }
@@ -82,6 +89,17 @@ class Wallets(){
 
 
     }
+
+    private fun boundToWalletsGlobalCurrencys(newWallet: Wallet) {
+        newWallet.currencyUnit = when (newWallet.currencyUnit) {
+            dollar -> dollar
+            euro -> euro
+            btc -> btc
+            peso -> peso
+            else -> dollar
+        }
+    }
+
     fun removeWallet( toRemove : Wallet ): Boolean {
         return wallets.remove(toRemove)
     }
@@ -113,14 +131,33 @@ class Wallets(){
     // Esta función suma los totales por moneda seleccionada
     // no hace ninguna conversión, acumula si cumple con
     // la condición que tengan la misma divisa
-    fun totalBalanceBy(currency : Currency) : Double {
+    fun totalBalanceBy(
+        currencyToTotalize : Currency,
+        currencyToTransform : Currency? = null
+    ) : Double {
+        val transformRate = currencyToTransform?.currencyConvertRate(
+                    currencyToTotalize
+                )?: 1.0
+
         var sum = 0.0
         for (wallet in wallets ){
-            sum += if(wallet.currencyUnit == currency)
+            sum += if(wallet.currencyUnit == currencyToTotalize)
                 wallet.balance?: 0.0
             else 0.0
         }
-        return sum
+        return sum * transformRate
+    }
+
+
+    fun totalConsolidatedBalanceIn( currency : Currency) : Double{
+        val usdTotal = totalBalanceBy(dollar , currency)
+        val btcTotal = totalBalanceBy(btc,currency)
+        val eurTotal = totalBalanceBy(euro, currency)
+        val pesoTotal = totalBalanceBy(peso, currency)
+        Log.d("totalConsolidated", euro.usdRefValue.toString())
+
+        return usdTotal + btcTotal + eurTotal + pesoTotal
+
     }
 
 
