@@ -10,13 +10,6 @@ class Wallet (
     var currencyUnit: Currency? = null
 
 ){
-    constructor(json: String): this(){
-        val walletFromJS = Gson().fromJson(json, Wallet::class.java)
-        name = walletFromJS.name
-        provider = walletFromJS.provider
-        balance = walletFromJS.balance
-        currencyUnit = walletFromJS.currencyUnit
-    }
     companion object ManagedCurrency{
         val DOLLAR = Currency(
             "Dólar",
@@ -37,7 +30,6 @@ class Wallet (
             "ARS"
         )
 
-        val LIST  = listOf<Currency>(DOLLAR, EURO, BTC, PESO)
     }
 
     override fun equals( other : Any?): Boolean {
@@ -50,9 +42,6 @@ class Wallet (
                 balance == other.balance &&
                 currencyUnit?.code == other.currencyUnit?.code
     }
-    fun toJson(): String = Gson().toJson(this)
-
-    fun isEmpty(): Boolean = name == null
 
     override fun hashCode(): Int {
         var result = name?.hashCode() ?: 0

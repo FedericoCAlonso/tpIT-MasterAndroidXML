@@ -1,6 +1,5 @@
 package federico.alonso.allwallet.dataClases
 
-import com.google.gson.Gson
 
 class Currency(
     // Nombre de la moneda
@@ -36,10 +35,6 @@ class Currency(
                 else
                     0.0
     }
-
-    fun toJson(): String = Gson().toJson(this)
-
-    fun fromJson(json : String): Currency = Gson().fromJson(json, Currency::class.java)
 
     fun isEmpty(): Boolean = code == ""
 

@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import federico.alonso.allwallet.R
 import federico.alonso.allwallet.apis.ApiWallet
 import federico.alonso.allwallet.credentialManager.CredentialManager
-import federico.alonso.allwallet.dataClases.Wallet
+
 
 
 class TabDashboard : Fragment() {
