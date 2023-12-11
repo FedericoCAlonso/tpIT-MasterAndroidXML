@@ -37,6 +37,9 @@ class ApiWallet(
             ).
             apply()
     }
+    fun clear(){
+        sharedPreferences.edit().clear().apply()
+    }
     fun updateWallets(){
         wallets = Wallets(sharedPreferences.getString(
             AppConstants.S_P_WALLETS_FIELD, ""

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="240dp"
+    android:layout_height="wrap_content"
+    android:background="@android:color/background_light"
+    android:elevation="8dp"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Contenido de la ventana emergente -->
+
+
+    <View
+        android:id="@+id/divider7"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/txtCurrencySettingsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/txtCurrencySettingsTitle" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="32dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <RadioButton
+            android:id="@+id/btnSettingsUSD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/AddWalletRadioButtonInputUSD" />
+
+        <RadioButton
+            android:id="@+id/btnSettingsEUR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/AddWalletRadioButtonEUR" />
+
+        <RadioButton
+            android:id="@+id/btnSettingsBTC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/AddWalletRadioButtonBTC" />
+
+        <RadioButton
+            android:id="@+id/btnSettingsARS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/AddWalletRadioButtonARS" />
+
+    </RadioGroup>
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/SettingsLoginSettings" />
+
+    <View
+        android:id="@+id/divider6"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <CheckBox
+        android:id="@+id/chkSettingsAutoLoginEnable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btnSettingsAutologinEnable" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|fill_horizontal|center_vertical"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <Button
+            android:id="@+id/btnSettingsAccept"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="8dp"
+            android:text="@string/SettingsBtnAccept" />
+
+        <Button
+            android:id="@+id/btnSettingsCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="8dp"
+            android:text="@string/SettingsBtnCancel" />
+    </LinearLayout>
+
+</LinearLayout>
+
+

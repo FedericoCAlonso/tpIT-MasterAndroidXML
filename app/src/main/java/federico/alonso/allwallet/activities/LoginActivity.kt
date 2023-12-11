@@ -43,9 +43,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-
-
-
     }
 
     private fun errorLogin() {

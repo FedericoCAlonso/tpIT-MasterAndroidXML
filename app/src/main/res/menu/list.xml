@@ -9,6 +9,7 @@
     <item
         android:id="@+id/action_logout"
         android:title="@string/menuItemLogout"
-        app:showAsAction="never" />
+        app:showAsAction="never"/>
+
 
 </menu>

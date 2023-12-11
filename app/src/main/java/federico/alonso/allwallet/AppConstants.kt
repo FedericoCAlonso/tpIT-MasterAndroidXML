@@ -5,6 +5,7 @@ package federico.alonso.allwallet
 * */
 object AppConstants {
 
+
     const val API_CEX_BTC_USD_PAIR = "BTC:USD"
     const val API_BLUELITICS_URL = "https://api.bluelytics.com.ar/v2/latest"
     const val API_CEX_URL = "https://cex.io/api/tickers/BTC/USD"
@@ -14,6 +15,7 @@ object AppConstants {
     const val S_P_CREDENTIAL_MANAGER_ISLOGGED_FIELD = "isLogged"
     const val S_P_CREDENTIAL_MANAGER_AUTLOLOGIN_FIELD = "autoLoginEnable"
     const val S_P_CREDENTIAL_MANAGER = "credential_manager"
+    const val S_P_SETTINGS: String = "settings"
 
     // tabWallet constants
     const val INTENT_EXTRA_EDIT_STATUS_NAME = "edit_wallet_edit_status"

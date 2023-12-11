@@ -21,7 +21,6 @@ import federico.alonso.allwallet.R
 import federico.alonso.allwallet.activities.EditWalletActivity
 
 
-
 class TabWallets() : Fragment() {
 
     private lateinit var apiWallet: ApiWallet

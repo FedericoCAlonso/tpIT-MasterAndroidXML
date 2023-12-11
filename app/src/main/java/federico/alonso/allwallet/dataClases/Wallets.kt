@@ -12,7 +12,7 @@ class Wallet (
 ){
     companion object ManagedCurrency{
         val DOLLAR = Currency(
-            "Dólar",
+            "Dollar",
             "USD",
             )
 
@@ -26,7 +26,7 @@ class Wallet (
             "BTC"
         )
         val PESO = Currency(
-            "Peso Argentino",
+            "Peso",
             "ARS"
         )
 
@@ -118,8 +118,9 @@ class Wallets(){
     fun size(): Int =  wallets.size
 
     // Esta función suma los totales por moneda seleccionada
-    // no hace ninguna conversión, acumula si cumple con
-    // la condición que tengan la misma divisa
+    // si currencyToTransfor es null, no hace ninguna conversión.
+    // Acumula la suma de todas las billeteras que tengan la
+    // divisa currencyToTotalize
     fun totalBalanceBy(
         currencyToTotalize : Currency,
         currencyToTransform : Currency? = null
@@ -143,7 +144,6 @@ class Wallets(){
         val btcTotal = totalBalanceBy(btc,currency)
         val eurTotal = totalBalanceBy(euro, currency)
         val pesoTotal = totalBalanceBy(peso, currency)
-        Log.d("totalConsolidated", euro.usdRefValue.toString())
 
         return usdTotal + btcTotal + eurTotal + pesoTotal
 

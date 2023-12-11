@@ -1,6 +1,7 @@
 package federico.alonso.allwallet.dataClases
 
 
+
 class Currency(
     // Nombre de la moneda
     val name: String,
@@ -10,20 +11,7 @@ class Currency(
     var usdRefValue: Double = 0.0
 
 ) {
-    /*// Cotización respecto al dolar estadounidense
-    private var _usdRefValue : Double? = null
 
-    var usdRefValue: Double?
-        get() {
-            return _usdRefValue
-        }
-        set(value) {
-            if ( value == null || value < 0)
-                return
-            else
-                _usdRefValue = value
-
-        }*/
 
         // 0 es un valor de error
     fun currencyConvertRate(unitTo: Currency): Double{
@@ -53,6 +41,5 @@ class Currency(
         result = 31 * result + code.hashCode()
         return result
     }
-
 
 }

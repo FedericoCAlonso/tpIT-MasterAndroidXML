@@ -73,7 +73,7 @@ class CredentialManager(
         loggedUser=null
         isLogged=false
         autoLoginEnable=false
-        savePreferences()
+        clear()
     }
 
     private fun savePreferences() {
@@ -91,6 +91,9 @@ class CredentialManager(
             autoLoginEnable
         )
         editor.apply()
+    }
+    private fun clear(){
+        sharedPreferences.edit().clear().apply()
     }
 
 

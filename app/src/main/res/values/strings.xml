@@ -46,5 +46,11 @@
     <string name="EditWalletCanceled">Operation Canceled</string>
     <string name="EditWalletSuccess">Wallet edited</string>
     <string name="DeleteWalletSuccess">Wallet Deleted</string>
+    <string name="txtCurrencySettingsTitle">Set the total currency</string>
+    <string name="SettingsLoginTitle">Login Settings</string>
+    <string name="SettingsLoginSettings">Login Settings</string>
+    <string name="btnSettingsAutologinEnable">Autologin enable</string>
+    <string name="SettingsBtnAccept">Accept</string>
+    <string name="SettingsBtnCancel">Cancel</string>
 
 </resources>
