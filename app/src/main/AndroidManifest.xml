@@ -41,10 +41,10 @@
             android:name="screenshot_2"
             android:resource="@drawable/screenshot_2"/>
         <meta-data
-            android:name="screenshot_1"
+            android:name="screenshot_3"
             android:resource="@drawable/screenshot_3"/>
         <meta-data
-            android:name="screenshot_2"
+            android:name="screenshot_4"
             android:resource="@drawable/screenshot_4"/>
     </application>
 

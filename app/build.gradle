@@ -34,10 +34,10 @@ android {
         jvmTarget = '1.8'
     }
 
-    packaging {
-        resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
-        }
+    packagingOptions {
+        
+        exclude  '/META-INF/{AL2.0,LGPL2.1}'
+
     }
     buildFeatures {
         compose = false
@@ -57,7 +57,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'com.google.code.gson:gson:2.10.1'
-    implementation "com.squareup.okhttp3:okhttp:4.11.0"
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'

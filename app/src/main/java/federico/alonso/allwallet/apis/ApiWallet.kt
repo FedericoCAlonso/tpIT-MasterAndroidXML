@@ -24,8 +24,8 @@ class ApiWallet(
 ) {
     /*val walletsLiveData = MutableLiveData<String>()*/
     lateinit var wallets: Wallets
-    lateinit private var cex : Cex
-    lateinit private var bluelitics : Bluelitics
+    private lateinit var cex : Cex
+    private lateinit var bluelitics : Bluelitics
     init {
         updateWallets()
     }
