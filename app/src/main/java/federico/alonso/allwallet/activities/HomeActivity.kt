@@ -1,5 +1,6 @@
 package federico.alonso.allwallet.activities
 import android.content.Intent
+import android.graphics.drawable.VectorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
@@ -17,6 +18,7 @@ import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.Toolbar
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -24,7 +26,6 @@ import federico.alonso.allwallet.AppConstants
 import federico.alonso.allwallet.credentialManager.CredentialManager
 import federico.alonso.allwallet.fragments.ViewPagerAdapter
 import federico.alonso.allwallet.R
-import federico.alonso.allwallet.R.drawable.logo2
 import federico.alonso.allwallet.apis.ApiWallet
 import federico.alonso.allwallet.dataClases.Settings
 import federico.alonso.allwallet.dataClases.Wallet
@@ -163,14 +164,16 @@ class HomeActivity : AppCompatActivity() {
 
     private fun configToolbar() {
 
-        //this.title = AppConstants.APP_NAME
+        this.title = AppConstants.APP_NAME
 
         // Hay que tener la precaución de importar la clase correcta
         // de toolbar. import androidx.appcompat.widget.Toolbar
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        val logo = AppCompatResources.getDrawable(this, logo2)
-        toolbar.logo = logo
+
+        val icon = AppCompatResources.getDrawable(this, R.drawable.icono_small)
+        toolbar.overflowIcon = icon
+
 
 
     }
