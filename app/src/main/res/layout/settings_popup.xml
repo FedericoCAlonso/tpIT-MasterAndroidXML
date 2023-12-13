@@ -24,6 +24,7 @@
         android:text="@string/txtCurrencySettingsTitle" />
 
     <RadioGroup
+        android:id="@+id/radioGroupSettingsCurrency"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="32dp"

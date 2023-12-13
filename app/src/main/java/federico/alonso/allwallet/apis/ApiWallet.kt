@@ -22,6 +22,7 @@ class ApiWallet(
         )
 
 ) {
+    /*val walletsLiveData = MutableLiveData<String>()*/
     lateinit var wallets: Wallets
     lateinit private var cex : Cex
     lateinit private var bluelitics : Bluelitics
@@ -36,6 +37,7 @@ class ApiWallet(
                 wallets.toJson()
             ).
             apply()
+        /*walletsLiveData.value = wallets.toJson()*/
     }
     fun clear(){
         sharedPreferences.edit().clear().apply()
@@ -53,16 +55,13 @@ class ApiWallet(
         cex = Cex(json)
         val btc = cex.getPairLastValue(AppConstants.API_CEX_BTC_USD_PAIR)?: 0.0
         wallets.btc.usdRefValue = btc
-        /*for(wallet in wallets) {
-            if (wallet.currencyUnit == Wallet.BTC)
-                wallet.currencyUnit!!.usdRefValue = btc
-        }*/
+
         save()
 
     }
 
-    private fun conetionError(error: String) {
-        Log.d("conectionError", error)
+    private fun connectionError(error: String) {
+        Log.d("connectionError", error)
 
     }
 
@@ -89,7 +88,7 @@ class ApiWallet(
                 cexOnSuccess(it)
             },
             {
-                conetionError(it)
+                connectionError(it)
             }
         ).performApiCall()
         ApiCall(AppConstants.API_BLUELITICS_URL,
@@ -97,7 +96,7 @@ class ApiWallet(
                 blueliticsOnSuccess(it)
             },
             {
-                conetionError(it)
+                connectionError(it)
             }
         ).performApiCall()
 

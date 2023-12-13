@@ -1,6 +1,6 @@
 package federico.alonso.allwallet.apis
 
-import android.content.Context
+
 import android.util.Log
 import okhttp3.Call
 import okhttp3.Callback
@@ -43,7 +43,7 @@ class ApiCall(
 
                     // Procesamiento exitoso
                     val responseBody = response.body?.string() ?: ""
-                    Log.d("apiCall","success ${responseBody}")
+                    Log.d("apiCall","success $responseBody")
                     onSuccess(responseBody)
                 }
             }

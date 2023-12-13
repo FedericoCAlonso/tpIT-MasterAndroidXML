@@ -10,7 +10,6 @@ import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import federico.alonso.allwallet.AppConstants
@@ -104,8 +103,8 @@ class EditWalletActivity : AppCompatActivity() {
     }
 
     private fun getDataFromForm(wallet: Wallet) {
-        wallet.provider = lblWalletProvider.text.toString().trim() ?: ""
-        wallet.name = lblWalletName.text.toString().trim() ?: ""
+        wallet.provider = lblWalletProvider.text.toString().trim()
+        wallet.name = lblWalletName.text.toString().trim()
         wallet.currencyUnit = when {
             btnInputUSD.isChecked -> Wallet.DOLLAR
             btnInputEUR.isChecked -> Wallet.EURO

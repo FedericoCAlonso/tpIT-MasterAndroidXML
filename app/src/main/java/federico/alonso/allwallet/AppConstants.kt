@@ -24,7 +24,7 @@ object AppConstants {
     const val RESULT_OP_EDITED = 1
     const val RESULT_OP_DELETED = 2
     const val RESULT_OP_ADDED = 3
-    val RESUTL_OP_DICTIONARY_MSGS = listOf<Int>(
+    val RESUTL_OP_DICTIONARY_MSGS = listOf(
         R.string.EditWalletCanceled,
         R.string.EditWalletSuccess,
         R.string.DeleteWalletSuccess,

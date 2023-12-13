@@ -74,7 +74,7 @@ class TabWallets() : Fragment() {
         apiWallet.updateWallets()
         when(activityResult.resultCode){
            AppConstants.RESULT_OP_ADDED ->
-               walletsAdapter.notifyItemInserted(apiWallet.wallets.size() -1)
+               walletsAdapter.notifyItemInserted(apiWallet.wallets.size() - 1)
            AppConstants.RESULT_OP_DELETED ->
                walletsAdapter.notifyItemRemoved(walletEditPosition)
            AppConstants.RESULT_OP_EDITED ->

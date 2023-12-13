@@ -3,6 +3,7 @@ package federico.alonso.allwallet.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -20,7 +21,8 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(this, HomeActivity::class.java)
 
         val login = CredentialManager(this)
-        if (login.isLogged()) {
+        Log.d("login","islogin ${login.isLogged()} is autologin ${login.isAutoLoginEnable()}")
+        if (login.isLogged() && login.isAutoLoginEnable()) {
             startActivity(intent)
         }
         val userField = findViewById<EditText>(R.id.lbl_userName)

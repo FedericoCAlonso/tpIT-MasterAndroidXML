@@ -16,7 +16,8 @@ object Settings{
                     getString(AppConstants.S_P_SETTINGS,null)
                     ?:Wallet.DOLLAR.code
     }
-    fun save(){
+    fun save(user: CredentialManager){
+        user.setAutoLoginEnable(autoLoginEnable)
         sharedPreferences?.
         edit()?.
         putString( AppConstants.S_P_SETTINGS ,currencyToTotalBalance )?.
